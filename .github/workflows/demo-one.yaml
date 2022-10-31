@@ -4,8 +4,6 @@ on:
     path:
       - '!README.md'
       - '!docs/**'
-      # - '**.js'
-    # branchs: [main,staging,develop]
     branchs:
       - 'main'
       - 'release/**'
