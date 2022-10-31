@@ -8,6 +8,8 @@ on:
       - 'main'
       - 'release/**'
       - '!dev/**'
+  pull_request:
+    type: [opened,reopened,synchronize,labeled,unlabeld]
   workflow_dispatch:
 jobs:
   demo-one:
