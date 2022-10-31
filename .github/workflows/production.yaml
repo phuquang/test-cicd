@@ -1,0 +1,22 @@
+name: production
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "rsync deployments"
+        uses: burnett01/rsync-deployments@4.1
+        with:
+          switches: -ahv --delete --recursive --exclude-from=./.distignore
+          path: ./*
+          remote_path: /phu/test-cicd
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: www-data
+          remote_key: ${{ secrets.REMOTE_KEY }}
+          remote_key_pass: ${{ secrets.REMOTE_KEY_PASS }}
