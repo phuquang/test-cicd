@@ -10,6 +10,7 @@ on:
       - 'main'
       - 'release/**'
       - '!dev/**'
+  workflow_dispatch:
 jobs:
   demo-one:
     runs-on: ubuntu-latest
