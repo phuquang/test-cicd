@@ -13,7 +13,7 @@ jobs:
       - name: "rsync deployments"
         uses: burnett01/rsync-deployments@4.1
         with:
-          switches: -ahv --delete --recursive --exclude-from=./.distignore
+          switches: -ahv --delete --recursive
           path: ./*
           remote_path: /phu/test-cicd
           remote_host: ${{ secrets.REMOTE_HOST }}
