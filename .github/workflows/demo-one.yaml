@@ -1,0 +1,9 @@
+name: demo one
+on:
+  push:
+    branchs: [main,staging,develop]
+jobs:
+  demo-one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello world
