@@ -1,7 +1,15 @@
 name: demo one
 on:
   push:
-    branchs: [main,staging,develop]
+    path:
+      - '!README.md'
+      - '!docs/**'
+      # - '**.js'
+    # branchs: [main,staging,develop]
+    branchs:
+      - 'main'
+      - 'release/**'
+      - '!dev/**'
 jobs:
   demo-one:
     runs-on: ubuntu-latest
