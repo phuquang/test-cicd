@@ -1,0 +1,28 @@
+name: demo one # Tên
+on: # Khởi chạy
+  push: # đẩy code vào nhánh bên dưới
+    path:
+      - '!README.md' # Không chạy khi README.md thay đổi
+      - '!docs/**' # Không chạy khi thư mục docs thay đổi. Nếu 1 * thì tương ứng với file, nếu 2 * tương ứng file, folder và subfolder
+      - '**.js' # Kích hoạt khi bất kỳ js nào thay đổi
+    branchs: [main,staging,develop] # chạy khi 3 nhánh main,staging,develop thay đổi
+    branchs:
+      - 'main' # chạy khi nhánh main thay đổi
+      - 'release/**' # chạy khi bất kỳ nhánh nào có tiền tố release/
+      - '!dev/**' # không chạy trên nhánh dev
+  pull_request: # các sự kiện của pull request
+    type: [opened,reopened,synchronize,labeled,unlabeld]
+    path:
+      - '!README.md'
+      - '!docs/**'
+    branchs:
+      - 'main'
+      - 'release/**'
+      - '!dev/**'
+  workflow_dispatch: # Khai báo muốn chạy thủ công
+jobs:
+  demo-one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "TODAY=$(date +%y-%m-%d)" >> $GITHUB_ENV
+      - run: echo hello world, today is $TODAY
