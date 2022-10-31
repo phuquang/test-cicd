@@ -17,6 +17,6 @@ jobs:
           path: ./*
           remote_path: /phu/test-cicd
           remote_host: ${{ secrets.REMOTE_HOST }}
-          remote_user: www-data
+          remote_user: root
           remote_key: ${{ secrets.REMOTE_KEY }}
           remote_key_pass: ${{ secrets.REMOTE_KEY_PASS }}
